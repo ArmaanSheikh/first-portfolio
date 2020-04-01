@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>Hii Thanks For Coming Here's My Blogs</h1>
+<h3>Right Now I has written {{blog.count}} blog{{blog.count|pluralize}}</h3>
+<br>
+  {% for data in blog %}
+  <a href="{% url 'blog:details' data.id %}"><h3>{{data.title}}</h3></a>
+  <h6>{{data.date|date:'M d Y'|upper }}</h6>
+  <p>{{data.blog_text|striptags|truncatechars:100}}</p>
+  {% endfor %}
+{% endblock %}

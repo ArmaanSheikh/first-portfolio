@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Aleem Alam</title>
+    <link rel="icon" href="{% static 'icon/icon2.png' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style="color:black;margin-left: 25px;" href="{% url 'index' %}"><span class="glyphicon glyphicon-user"></span> My Portfolio</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li ><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'blog:index' %}">Blog</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% static 'pdf/mypdf.pdf' %}">My Resume</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <br>
+      {% block body %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

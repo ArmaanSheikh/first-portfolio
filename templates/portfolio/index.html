@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="col text-center ">
+<img src="{% static 'images/aleem.jpg'  %}" alt="OHHH NOOO" height="400" width="380">
+<h1>Hello! Its My Protfolio Site</h1>
+</div>
+<br>
+<h3>Thats My Projects</h3>
+{% for project in portfolio_project %}
+   {% if forloop.first %}<div class="row">{% endif %}
+    <div class="col-lg-4 thumbnail">
+      <img src="media/{{project.img}}" alt="">
+      <h3>{{project.title}}</h1>
+      <p>{{project.disc}}</p>
+      {% if project.url %}
+      <a href="{{ project.url }}">Link</a>
+      {% endif %}
+    </div>
+    {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+{% endfor %}
+{% endblock %}
